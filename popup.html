@@ -1,0 +1,75 @@
+<html>
+<head>
+	<style type="text/css">
+		body {
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 13px;
+			width: 200px;
+		}
+		
+		hr {
+			border-color: #dddddd;
+			color: #dddddd;
+			background-color: #dddddd;
+			border-width: 0;
+			height: 1px;
+		}
+		
+		ul {
+			list-style-type: none;
+			padding-left: 0;
+			margin: 3px;
+			font-weight: bold;
+			font-family: arial, sans-serif;
+			font-size: 9pt;
+		}
+		
+		li span {
+			display: inline-block;
+			overflow: hidden;
+			white-space: nowrap;
+			width: 170px;
+			text-overflow: ellipsis;
+		}
+	</style>
+	<script type="text/javascript">
+		var init = function(){
+			chrome.extension.onRequest.addListener(function(request, sender, sendResponse){
+				if (sender.tab || !request.feeds){
+					return;
+				}
+				
+				var ul = document.getElementById('feeds');
+				while (ul.hasChildNodes()){
+					ul.removeChild(ul.firstChild);
+				}
+				
+				for (var i in request.feeds){
+					var li, span;
+					span = document.createElement('span');
+					span.appendChild(document.createTextNode(request.feeds[i][0]));
+					li = document.createElement('li');
+					li.appendChild(span);
+					li.appendChild(document.createTextNode('(' + request.feeds[i][1] + ')'));
+					li.setAttribute('id', request.feeds[i][0]);
+					li.addEventListener('click', goToFeed);
+					ul.appendChild(li);
+				}
+			});
+		},
+		
+		goToFeed = function(oEvent){
+			var o_target_element = oEvent.toElement;
+			while (o_target_element.nodeName != 'LI' && o_target_element.parentElement){
+				o_target_element = o_target_element.parentElement;
+			}
+			
+			window.open('https://www.google.com/reader/view/' + o_target_element.id);
+		};
+	</script>
+</head>
+<body onload="init();">
+	<a href="#">To Google Reader</a>
+	<hr>
+	<ul id="feeds"></ul>
+</body>

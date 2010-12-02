@@ -1,0 +1,51 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	
+}
+
+img {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 14px;
+}
+
+h2 {
+	float: left;
+}
+
+h3 {
+	background-color: #ebeff9;
+	margin: 0;
+	font-size: 13px;
+	padding: 5px;
+	border-bottom: 1px solid #edeff5;
+}
+
+hr {
+	clear: both;
+	border-color: #b5c7de;
+	color: #b5c7de;
+	background-color: #b5c7de;
+	border-width: 0;
+	height: 1px;
+	margin: 0;
+}
+
+hr.footer {
+	background-color: #cdcdcd;
+}
+
+label {
+	margin: 5px;
+}
+
+button {
+	margin: 10px 0;
+}
+
+span {
+	color: #b5c7de;
+	margin: 10px;
+	line-height: 18px;
+	font-size: 12px;
+}

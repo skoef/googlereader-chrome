@@ -1,0 +1,19 @@
+{
+  "name": "Google Reader Checker",
+  "description": "Displays the number of unread items in your Google Reader",
+  "version": "0.2.0",
+  "background_page": "background.html",
+  "permissions": [
+      "tabs", 
+      "http://*.google.com/", 
+      "https://*.google.com/",
+      "notifications"
+   ],
+  "browser_action": {
+      "default_title": "Google Reader"
+  },
+  "icons": {
+    "128": "images/gr_logged_in.png"
+  },
+  "options_page": "options.html"
+}

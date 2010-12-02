@@ -1,0 +1,42 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/options.css">
+	<script type="text/javascript" src="js/mootools.js"></script>
+	<script type="text/javascript" src="js/LocalStorage.js"></script>
+	<script type="text/javascript" src="js/GRChecker.Settings.js"></script>
+	<script type="text/javascript">
+		window.addEvent('domready', function(){
+			GRChecker.Settings.restore();
+			
+			$('saveButton').addEvent('click', function(){
+				GRChecker.Settings.store();
+				try {
+					$('status').set('html', 'Options Saved.');
+					setTimeout(function() {
+						$('status').set('html', '');
+					}, 750);
+				} catch (x){}
+			});
+		});
+	</script>
+</head>
+<body>
+	<img src="images/gr_logged_in.png" width="64" height="64">
+	<h2>Google Reader Checker options</h2>
+	
+	<hr>
+	<h3>Connection</h3>
+	
+	<label><input type="checkbox" name="use_https" id="use_https"> Check and open Google Reader over a secured connection</label><br>
+	<label><input type="number" name="poll_interval" id="poll_interval" size="4" maxlength="4"> seconds between checking</label><br>
+	
+	<hr>
+	<h3>Verbosity</h3>
+	
+	<label><input type="checkbox" name="show_notifications" id="show_notifications"> Show notification when new unread items are available</label><br>
+	
+	<hr class="footer">
+	<button id="saveButton">Save</button>
+	<span id="status"></span>
+</body>
+</html>
