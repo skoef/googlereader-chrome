@@ -1,0 +1,81 @@
+{
+	"extName": {
+		"message": "Google Reader Checker",
+		"description": "Title of the extension, shown in the extensions tab"
+	},
+	
+	"extDescription": {
+		"message": "Toont het aantal ongelezen berichten in Google Reader",
+		"description": "Brief description of the extension, shown in the extensions tab"
+	},
+	
+	"clickToLogin": {
+		"message": "klik om in te loggen",
+		"description": "When not logged in, the icon is shown in black/white and this text is the title of the icon"
+	},
+	
+	"totalUnreadOne": {
+		"message": "ongelezen bericht",
+		"description": "Used in the icon's title when only one unread item is available"
+	},
+	
+	"totalUnread": {
+		"message": "ongelezen berichten",
+		"description": "Used in the icon's title when more than one unread item is available"
+	},
+	
+	"noticeUnreadOne": {
+		"message": "nieuw ongelezen bericht",
+		"description": "Used in notifications when only one unread item is available"
+	},
+	
+	"noticeUnread": {
+		"message": "nieuwe ongelezen berichten",
+		"description": "Used in notifications when more than one unread item is available"
+	},
+	
+	"noticeSuffix": {
+		"message": "in Google Reader",
+		"description": "Suffix of text used in notifications"
+	},
+	
+	"optionsTitle": {
+		"message": "Google Reader Checker instellingen",
+		"description": "Header of options window"
+	},
+	
+	"optionsSaveNotice": {
+		"message": "Instellingen opgeslagen",
+		"description": "Status message shown when options are saved"
+	},
+	
+	"optionsConnectionHeader": {
+		"message": "Verbinding",
+		"description": "Header of connection options"
+	},
+	
+	"optionsUseHTTPS": {
+		"message": "Controleer en open Google Reader over een beveiligde verbinding",
+		"description": "Description of http/https option"
+	},
+	
+	"optionsPollInterval": {
+		"message": "tijd in seconden tussen het controleren op nieuwe ongelezen berichten",
+		"description": "Description of poll interval option"
+	},
+	
+	"optionsNotificationsHeader": {
+		"message": "Notificaties",
+		"description": "Header of notification options"
+	},
+	
+	"optionsShowNotifications": {
+		"message": "Toon notificaties wanneer nieuwe ongelezen berichten beschikbaar zijn",
+		"description": "Description of notification option"
+	},
+	
+	"optionsSaveButton": {
+		"message": "Opslaan",
+		"description": "Caption of save button"
+	}
+}

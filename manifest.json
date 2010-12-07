@@ -1,7 +1,7 @@
 {
-  "name": "Google Reader Checker",
-  "description": "Displays the number of unread items in your Google Reader",
-  "version": "0.2.0",
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
+  "version": "0.2.1",
   "background_page": "background.html",
   "permissions": [
       "tabs", 
@@ -15,5 +15,6 @@
   "icons": {
     "128": "images/gr_logged_in.png"
   },
-  "options_page": "options.html"
+  "options_page": "options.html",
+  "default_locale": "en"
 }

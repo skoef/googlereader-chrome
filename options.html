@@ -11,32 +11,49 @@
 			$('saveButton').addEvent('click', function(){
 				GRChecker.Settings.store();
 				try {
-					$('status').set('html', 'Options Saved.');
+					$('status').set('html', chrome.i18n.getMessage('optionsSaveNotice'));
 					setTimeout(function() {
 						$('status').set('html', '');
 					}, 750);
 				} catch (x){}
+			});
+			
+			// locale
+			[
+				'optionsTitle',
+				'optionsConnectionHeader',
+				'optionsUseHTTPS',
+				'optionsPollInterval',
+				'optionsNotificationsHeader',
+				'optionsShowNotifications',
+				'optionsSaveButton'
+			].each(function(field){
+				try {
+					($$('[alt=' + field + ']')).each(function(el){
+						el.set('text', chrome.i18n.getMessage(field)).erase('alt');
+					})
+				} catch (x) {}
 			});
 		});
 	</script>
 </head>
 <body>
 	<img src="images/gr_logged_in.png" width="64" height="64">
-	<h2>Google Reader Checker options</h2>
+	<h2 alt="optionsTitle">__MSG_optionsTitle__</h2>
 	
 	<hr>
-	<h3>Connection</h3>
+	<h3 alt="optionsConnectionHeader">__MSG_optionsConnectionHeader__</h3>
 	
-	<label><input type="checkbox" name="use_https" id="use_https"> Check and open Google Reader over a secured connection</label><br>
-	<label><input type="number" name="poll_interval" id="poll_interval" size="4" maxlength="4"> seconds between checking</label><br>
+	<label><input type="checkbox" name="use_https" id="use_https"> <span alt="optionsUseHTTPS">__MSG_optionsUseHTTPS__</span></label><br>
+	<label><input type="number" name="poll_interval" id="poll_interval" size="4" maxlength="4"> <span alt="optionsPollInterval">__MSG_optionsPollInterval__</span></label><br>
 	
 	<hr>
-	<h3>Verbosity</h3>
+	<h3 alt="optionsNotificationsHeader">__MSG_optionsNotificationsHeader__</h3>
 	
-	<label><input type="checkbox" name="show_notifications" id="show_notifications"> Show notification when new unread items are available</label><br>
+	<label><input type="checkbox" name="show_notifications" id="show_notifications"> <span alt="optionsShowNotifications">__MSG_optionsShowNotifications__</span></label><br>
 	
 	<hr class="footer">
-	<button id="saveButton">Save</button>
+	<button id="saveButton" alt="optionsSaveButton">__MSG_optionsSaveButton__</button>
 	<span id="status"></span>
 </body>
 </html>

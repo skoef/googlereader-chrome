@@ -43,7 +43,7 @@ button {
 	margin: 10px 0;
 }
 
-span {
+span#status {
 	color: #b5c7de;
 	margin: 10px;
 	line-height: 18px;

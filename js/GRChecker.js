@@ -54,6 +54,10 @@ var GRChecker = new Class({
 			chrome.browserAction.setIcon({
 				path: "images/gr_not_logged_in.png"
 			});
+			// show login text
+			chrome.browserAction.setTitle({
+				title: 'Google Reader: ' + chrome.i18n.getMessage('clickToLogin')
+			});
 			// hide badge
 			this.setBadge(0);
 		} else {
@@ -61,7 +65,15 @@ var GRChecker = new Class({
 			chrome.browserAction.setIcon({
 				path: "images/gr_logged_in.png"
 			});
+			// remove login text when previously not logged in
+			if (this.sessionLoggedIn !== true){
+				chrome.browserAction.setTitle({
+					title: 'Google Reader'
+				});
+			}
 		}
+		
+		this.sessionLoggedIn = bLoggedIn;
 	},
 	
 	// set number of unread items in icon badge
@@ -75,7 +87,7 @@ var GRChecker = new Class({
 		if (count >= 1){
 			// add current count to badge text when there are any unread items
 			text += count;
-			title += ': ' + count + ' unread items';
+			title += ': ' + count + ' ' + (count === 1 ? chrome.i18n.getMessage('totalUnreadOne') : chrome.i18n.getMessage('totalUnread'));
 		}
 		
 		// set badge color
@@ -116,7 +128,7 @@ var GRChecker = new Class({
 					selected: true,
 					url: new_url
 				});
-				
+				console.log('mekker');
 				return;
 			}
 			
@@ -228,9 +240,11 @@ var GRChecker = new Class({
 			// only count feed-entries
 			// otherwise, the count is doubled
 			if (typeOf(feed.id) !== false && feed.id.match(/^feed\//) !== null){
+				console.log(feed.count, 'unread items by', feed.id);
 				count += feed.count;
 			}
 		});
+		console.log('total unread', count);
 		
 		// notify user, when enabled and new count is higher than current count
 		if (this.unreadCount !== undefined && this.unreadCount < count){
@@ -245,7 +259,7 @@ var GRChecker = new Class({
 					notification = webkitNotifications.createNotification(
 						'images/gr_logged_in.png',
 						'Google Reader',
-						(newCount === 1 ? '1 new unread item' : newCount + ' new unread items') + ' available in Google Reader'
+						newCount + ' ' + (newCount === 1 ? chrome.i18n.getMessage('noticeUnreadOne') : chrome.i18n.getMessage('noticeUnreadOne')) + ' ' + chrome.i18n.getMessage('noticeSuffix')
 					);
 					// make notification disappear automatically
 					// after 5 secs
