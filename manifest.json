@@ -1,7 +1,7 @@
 {
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "background_page": "background.html",
   "permissions": [
       "tabs", 
@@ -13,7 +13,9 @@
       "default_title": "Google Reader"
   },
   "icons": {
-    "128": "images/gr_logged_in.png"
+    "16": "images/logo_16.png",
+    "48": "images/logo_48.png",
+    "128": "images/logo_128.png"
   },
   "options_page": "options.html",
   "default_locale": "en"

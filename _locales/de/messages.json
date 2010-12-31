@@ -68,8 +68,8 @@
 		"message": "Erinnerungen",
 		"description": "Header of notification options"
 	},
-
-	"optionsVerbosityHeader": {
+	
+	"optionsShowNotifications": {
 		"message": "Erinnere daran, wenn es ungelesene Meldungen gibt",
 		"description": "Description of notification option"
 	},

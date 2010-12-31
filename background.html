@@ -8,11 +8,24 @@
 			window.addEvent('load', function(){
 				// init GRChecker
 				var grc = new GRChecker(),
-					_gaq = _gaq || [];
+					_gaq = _gaq || [],
+					stor = new LocalStorage();
 					
 				// init GA tracker
 				_gaq.push(['_setAccount', 'UA-15538477-3']);
 				_gaq.push(['_trackPageview']);
+				
+				// track new installation
+				if (stor.get('installed') === null){
+					stor.set('installed', 'true');
+					
+					var uniq = String.uniqueID();
+					_gaq.push(['_addTrans', uniq, 'Web Store', '0', '0', '0', '', '', '']);
+					_gaq.push(['_addItem', uniq, 'install', '', '', 0, 1]);
+					_gaq.push(['_trackTrans']);
+					console.log('tracked install');
+				}
+				
 				(function() {
 					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 					ga.src = 'https://ssl.google-analytics.com/ga.js';

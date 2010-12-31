@@ -69,7 +69,7 @@
 		"description": "Header of notification options"
 	},
 	
-	"optionsVerbosityHeader": {
+	"optionsShowNotifications": {
 		"message": "Show notification when new unread items are available",
 		"description": "Description of notification option"
 	},

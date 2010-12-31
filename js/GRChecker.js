@@ -52,7 +52,7 @@ var GRChecker = new Class({
 		if (bLoggedIn !== true){
 			// change icon to the grey version
 			chrome.browserAction.setIcon({
-				path: "images/gr_not_logged_in.png"
+				path: "images/logo_128_grey.png"
 			});
 			// show login text
 			chrome.browserAction.setTitle({
@@ -63,7 +63,7 @@ var GRChecker = new Class({
 		} else {
 			// change icon to the blue version
 			chrome.browserAction.setIcon({
-				path: "images/gr_logged_in.png"
+				path: "images/logo_16.png"
 			});
 			// remove login text when previously not logged in
 			if (this.sessionLoggedIn !== true){
@@ -213,7 +213,10 @@ var GRChecker = new Class({
 		// invalid response
 		// reason unknown, but mark session offline
 		if (!response || typeOf(response.unreadcounts) === false){
+			console.log('invalid response, try again later');
 			this.setSessionLoggedIn(false);
+			// try again after timeout
+			this.scheduleNext();
 			return;
 		}
 		
@@ -257,7 +260,7 @@ var GRChecker = new Class({
 					// format notice
 					// show the number of new unread items
 					notification = webkitNotifications.createNotification(
-						'images/gr_logged_in.png',
+						'images/logo_48.png',
 						'Google Reader',
 						newCount + ' ' + (newCount === 1 ? chrome.i18n.getMessage('noticeUnreadOne') : chrome.i18n.getMessage('noticeUnreadOne')) + ' ' + chrome.i18n.getMessage('noticeSuffix')
 					);
