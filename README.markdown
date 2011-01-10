@@ -4,6 +4,7 @@ Google Reader Chrome extension
 Chrome extension displaying the number of unread items on your Google Reader account. Clicking the icon will take you to Google Reader. That's basically about it :)
 
 ### Changelog:
+- **0.2.3** (2011-01-10) Fixed retrying after failed fetch
 - **0.2.2** (2010-12-31) Updated logo
 	- by popular demand, updated the Google Reader logo
 	- fixed locale in options window
