@@ -202,6 +202,8 @@ var GRChecker = new Class({
 			'onFailure': function(){
 				console.log('failed, logging out');
 				this.setSessionLoggedIn(false);
+				// try again after timeout
+				this.scheduleNext();
 			}.bind(this)
 		});
 		// send request
