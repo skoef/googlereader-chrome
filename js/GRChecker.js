@@ -236,15 +236,21 @@ var GRChecker = new Class({
 		
 		// init vars
 		var count = 0,
+			label = GRChecker.Settings.get('label'),
+			pattern,
 			newCount,
 			notification,
 			notify;
-			
+		if (label == '') {
+			pattern = 'com.google\/reading-list$';
+		} else {
+			pattern = 'label\/' + label + '$';
+		}
+		var re = new RegExp(pattern);
+
 		// count unread items
 		response.unreadcounts.each(function(feed, index){
-			// only count feed-entries
-			// otherwise, the count is doubled
-			if (typeOf(feed.id) !== false && feed.id.match(/^feed\//) !== null){
+			if (typeOf(feed.id) !== false && feed.id.match(re) !== null){
 				console.log(feed.count, 'unread items by', feed.id);
 				count += feed.count;
 			}
