@@ -32,7 +32,8 @@ const GR_SETTINGS = '__settings';
 GRChecker.Settings.all = {
 	'use_https': true, 
 	'show_notifications': false,
-	'poll_interval': 60
+	'poll_interval': 60,
+	'label': '',
 };
 
 // get key from settings
@@ -72,6 +73,7 @@ GRChecker.Settings.restore = function(){
 				break;
 				
 			case 'number':
+			case 'string':
 				$(field).set('value', value);
 				break;
 				
@@ -97,6 +99,10 @@ GRChecker.Settings.store = function(){
 				
 			case 'number':
 				settings[field] = parseInt($(field).get('value'), 10);
+				break;
+
+			case 'text':
+				settings[field] = $(field).get('value');
 				break;
 				
 			default:

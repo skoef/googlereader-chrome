@@ -64,6 +64,11 @@
 		"description": "Description of poll interval option"
 	},
 	
+	"optionsLabel": {
+		"message": "Only notify items from this label, or leave blank to notify all items:",
+		"description": "Description of label option"
+	},
+	
 	"optionsNotificationsHeader": {
 		"message": "Notifications",
 		"description": "Header of notification options"
